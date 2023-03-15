@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 
 /**
  * This activity allows the user to roll a dice and view the result
@@ -17,19 +16,21 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById<Button>(R.id.button)
 
-        rollButton.setOnClickListener { rollDice() }
+        rollButton.setOnClickListener {
+            rollDice(findViewById<TextView>(R.id.diceResult1))
+            rollDice(findViewById<TextView>(R.id.diceResult2))
+        }
     }
 
     /**
      * Roll the dice and update the screen with the result
      */
-    private fun rollDice() {
+    private fun rollDice(resultTextView: TextView) {
         //Create new Dice object with 6 sides and roll it
         val dice = Dice(6)
         val diceRoll = dice.roll()
 
         //Update the screen with the dice roll
-        val resultTextView: TextView = findViewById<TextView>(R.id.textView)
         resultTextView.text = diceRoll.toString()
     }
 }
