@@ -1,7 +1,7 @@
 DiceRoller - Code
 =====================
 
-![](diceRoller.gif)
+![](twoDiceRoller.gif)
 
 Introduction
 ------------
